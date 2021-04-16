@@ -3,6 +3,7 @@ const router = express.Router();
 import User from "../../models/dbUser.js"
 import {getToken} from "../../util.js"
 router.route("/register").post(async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     const newuser = new User({
         username: req.body.username,
         email: req.body.email,
@@ -33,6 +34,7 @@ router.route("/register").post(async (req, res) => {
 
 
 router.route("/login").post( async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     const at="@"
     let user
     if (req.body.username.includes(at)){
@@ -68,6 +70,7 @@ router.route("/login").post( async (req, res) => {
 })
 
 router.route("/logout").get((req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     req.logout();
     res.json("you have been logged out")
 })
