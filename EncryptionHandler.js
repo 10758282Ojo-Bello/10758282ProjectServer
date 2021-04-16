@@ -1,4 +1,4 @@
-const crypto = require("crypto");
+import crypto  from "crypto"
 const secret = "pppppppppppppppppppppppppppppppp";
 
 const encrypt = (password) => {
@@ -31,4 +31,4 @@ const decrypt = (encryption) => {
   return decryptedPassword.toString();
 };
 
-module.exports = { encrypt, decrypt };
+export { encrypt, decrypt };
