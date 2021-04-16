@@ -2,7 +2,7 @@ import express from 'express'
 const router = express.Router();
 import User from "../../models/dbUser.js"
 import {getToken} from "../../util.js"
-router.route("/api/register").post(async (req, res) => {
+router.route("/register").post(async (req, res) => {
     const newuser = new User({
         username: req.body.username,
         email: req.body.email,
@@ -32,7 +32,7 @@ router.route("/api/register").post(async (req, res) => {
 
 
 
-router.route("/api/login").post( async (req, res) => {
+router.route("/login").post( async (req, res) => {
     const at="@"
     let user
     if (req.body.username.includes(at)){
